@@ -10,21 +10,22 @@ import requests
 
 END_POINT = "https://neural-style-transfer-zekrs5pysa-uc.a.run.app/"
 
-# Upload button
+# UPLOAD BUTTON
 upload_icon = DashIconify(icon="hugeicons:image-upload", style={"marginLeft": 5})
 img_upload_button = dbc.Button(id='img-upload-btn', children=['Upload image', upload_icon], style={'marginBottom': '20px', 'background-color': '#000080'}, size='lg')
 sty_upload_button = dbc.Button(id='sty-upload-btn', children=['Upload style', upload_icon], style={'marginBottom': '20px', 'background-color': '#000080'}, size='lg')
 fi_upload_button = dbc.Button(id='fi-upload-btn', children=['Upload first image', upload_icon], style={'marginBottom': '20px', 'background-color': '#000080'}, size='lg')
 si_upload_button = dbc.Button(id='si-upload-btn', children=['Upload second image', upload_icon], style={'marginBottom': '20px', 'background-color': '#000080'}, size='lg')
 
-# Stylize button
+# STYLIZE BUTTON
 stylize_icon = DashIconify(icon="raphael:magic", style={"marginLeft": 5})
 stylize_button = dbc.Button(id='stylize-btn', children=['Stylize', stylize_icon], style={'marginBottom': '20px', 'background-color': '#000080'}, size='lg')
 
-# Scan button
+# SCAN BUTTON
 scan_icon = DashIconify(icon="tabler:photo-scan", style={"marginLeft": 5})
 scan_button = dbc.Button(id='scan-btn', children=['Scan', scan_icon], style={'marginBottom': '20px', 'background-color': '#000080'}, size='lg')
 
+# LAYOUT
 app = Dash(__name__, external_stylesheets=[dbc.themes.SKETCHY], suppress_callback_exceptions=True)
 server = app.server
 app.layout = dbc.Container([
@@ -35,6 +36,7 @@ app.layout = dbc.Container([
     html.Div(id='tabs-content')
 ])
 
+# TABS CALLBACK
 @app.callback(
     Output('tabs-content', 'children'),
     Input('tabs', 'active_tab')
@@ -135,7 +137,7 @@ def render_content(tab):
             ])
         ], style={'color': '#000080'})
 
-# Callback to handle image upload and display
+# IMAGE UPLOAD AND DISPLAY CALLBACK
 @app.callback(
     Output('output-image', 'children'),
     Input('upload-image', 'contents')
@@ -145,7 +147,7 @@ def update_img_output(contents):
         return html.Img(src=contents, style={'maxWidth': '450px', 'maxHeight': '450px'})
     return "No image uploaded yet"
 
-# Callback to handle style upload and display
+# STYLE UPLOAD AND DISPLAY CALLBACK
 @app.callback(
     Output('output-style', 'children'),
     Input('upload-style', 'contents')
@@ -155,7 +157,7 @@ def update_sty_output(contents):
         return html.Img(src=contents, style={'maxWidth': '450px', 'maxHeight': '450px'})
     return "No style uploaded yet"
 
-# Callback to handle first image upload and display
+# FIRST IMAGE UPLOAD AND DISPLAY CALLBACK
 @app.callback(
     Output('output-first-image', 'children'),
     Input('upload-first-image', 'contents')
@@ -165,7 +167,7 @@ def update_fi_output(contents):
         return html.Img(src=contents, style={'maxWidth': '450px', 'maxHeight': '450px'})
     return "No image uploaded yet"
 
-# Callback to handle second image upload and display
+# SECOND IMAGE UPLOAD AND DISPLAY CALLBACK
 @app.callback(
     Output('output-second-image', 'children'),
     Input('upload-second-image', 'contents')
@@ -175,7 +177,7 @@ def update_si_output(contents):
         return html.Img(src=contents, style={'maxWidth': '450px', 'maxHeight': '450px'})
     return "No image uploaded yet"
 
-# Callback to stylize image
+# STYLIZE IMAGE CALLBACK
 @app.callback(
     Output('stylized-image', 'src'),
     Input('stylize-btn', 'n_clicks'),
