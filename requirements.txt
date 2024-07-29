@@ -1,0 +1,7 @@
+dash
+dash.ly
+dash_bootstrap_components
+dash_iconify
+Flask
+numpy
+Pillow
