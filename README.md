@@ -1,6 +1,6 @@
 # ARTISTvsAI
 
-## This app is developed to support the ARTIST vs AI campaign. This app is built on the foundational principles of neural style transfer developed by Mr Shafik Quoraishee, with frontend design by Ms Manali Jain. It allows one to stylize an image and calculates the similarity percentage between two images.
+## This app is developed to support the ARTIST vs AI campaign. This app is built on the foundational principles of neural style transfer developed by Mr Shafik Quoraishee [@squoraishee, https://github.com/squoraishee], with frontend design by me. It allows one to stylize an image and calculates the similarity percentage between two images.
 
 _*The backend of the similarity percentage calculator is under development._
 
